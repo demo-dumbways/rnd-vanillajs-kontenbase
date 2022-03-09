@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffd32d;
+}
+
+* {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.text-yellow {
+  color: #ffd32d;
+}
+
+.bg-yellow {
+  background-color: #ffd32d;
+}
+
+section.form-add {
+  display: flex;
+  height: 100vh;
+  background-color: #008e89;
+  justify-content: center;
+  align-items: center;
+}
+
+section.form-add form {
+  /* border: 4px solid blanchedalmond; */
+  width: 500px;
+}
+
+section.form-add form h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px !important;
+}
+
+section.form-add form div.input-group,
+div.date-input-group {
+  margin-bottom: 20px;
+}
+
+section.form-add form .input-group label {
+  color: white;
+  font-size: 18px;
+}
+
+section.form-add form .input-group input {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 10px 10px;
+  border: none;
+  margin-top: 5px;
+}
+
+section.form-add form .input-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 10px 10px;
+  border: none;
+  margin-top: 5px;
+  height: 100px;
+  resize: vertical;
+}
+
+section.form-add form div .choose-thumbnail-group {
+  width: 100% !important;
+  background-color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  border-radius: 8px;
+}
+
+section.form-add form div .choose-thumbnail {
+  width: 100% !important;
+  cursor: pointer;
+  font-size: 13px;
+  color: gray;
+}
+
+section.form-add form input:focus,
+textarea:focus {
+  outline: none;
+}
+
+section.form-add form .date-input-group {
+  display: flex;
+}
+
+section.form-add form .date-input-group div label {
+  color: white;
+  font-size: 18px;
+}
+
+section.form-add form .date-input-group div {
+  flex: 1;
+}
+
+section.form-add form .date-input-group div input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: none;
+}
+
+section.form-add form .date-input-group div.group-start {
+  margin-right: 10px;
+}
+
+section.form-add form .button-group {
+  text-align: right;
+  padding-top: 40px;
+}
+
+section.form-add form .button-group button {
+  padding: 7px 20px;
+  background-color: #ffd32d;
+  border: none;
+  border-radius: 8px;
+  color: #008e89;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* List Project */
+
+section.my-project {
+  min-height: 100vh;
+  background-color: #009d97;
+  padding-top: 50px;
+}
+
+section.my-project .title-project {
+  color: white;
+  font-size: 30px !important;
+  text-align: center;
+}
+
+section.my-project .project-container {
+  display: flex;
+  /* border: 1px solid coral; */
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+section.my-project .project-container .card {
+  border: 3px solid #ffd32d;
+  width: 300px;
+  border-radius: 8px;
+  padding: 5px;
+  background-color: #effffd;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+section.my-project .project-container .card img {
+  background-color: gray;
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+}
+
+section.my-project .project-container .card .date {
+  font-size: 13px;
+}
+
+section.my-project .project-container .card p {
+  color: gray;
+  font-size: 13px;
+}
+
+section.my-project .project-container .card .btn-group {
+  display: flex;
+  margin-top: 20px;
+}
+
+section.my-project .project-container .card .btn-group button {
+  flex: 1;
+  border: none;
+  background-color: #085e7d;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 3px 8px;
+}
+
+section.my-project .project-container .card .btn-group button:hover {
+  background-color: #ebc53b;
+  transition: 0.3s;
+}
+
+section.my-project .project-container .card .btn-group button.btn-edit {
+  margin-right: 5px;
+}

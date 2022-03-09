@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Project</title>
+    <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
+  </head>
+  <body>
+    <section class="form-add">
+      <form>
+        <h1>Add <span class="text-yellow">My Project</span></h1>
+        <div class="input-group">
+          <label for="input-title">Title</label>
+          <input
+            type="text"
+            id="input-title"
+            placeholder="Write here..."
+            value="Lorem ipsum dolor"
+          />
+        </div>
+        <div class="date-input-group">
+          <div class="group-start">
+            <label for="input-start">Start</label>
+            <input type="date" id="input-start" value="2022-03-03" />
+          </div>
+          <div class="group-end">
+            <label for="input-end">End</label>
+            <input type="date" id="input-end" value="2022-08-03" />
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="input-desc">Desc</label>
+          <textarea id="input-desc" placeholder="Write here...">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nemo ducimus cumque consequuntur ipsam saepe quam ab amet nulla modi.</textarea
+          >
+        </div>
+        <div class="input-group">
+          <label>Thumbnail</label>
+          <label for="input-thumbnail" class="choose-thumbnail">
+            <div class="choose-thumbnail-group" id="choose-thumbnail-group">
+              Choose file
+            </div>
+          </label>
+          <input
+            id="input-thumbnail"
+            onchange="onChangeThumbnail()"
+            type="file"
+            hidden
+          />
+        </div>
+        <div class="button-group">
+          <button type="button" onclick="addProject()">Submit</button>
+        </div>
+      </form>
+    </section>
+    <section class="my-project">
+      <h1 class="title-project">My Project</h1>
+      <div class="project-container" id="project-container">
+        <!-- <div class="card">
+          <img src="" />
+          <h3>Judul 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
+            tempore nesciunt, molestiae quos officiis possimus nobis? Porro quam
+            dignissimos distinctio!
+          </p>
+          <div class="btn-group">
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="" />
+          <h3>Judul 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
+            tempore nesciunt, molestiae quos officiis possimus nobis? Porro quam
+            dignissimos distinctio!
+          </p>
+          <div class="btn-group">
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="" />
+          <h3>Judul 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
+            tempore nesciunt, molestiae quos officiis possimus nobis? Porro quam
+            dignissimos distinctio!
+          </p>
+          <div class="btn-group">
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <script src="project.js"></script>
+  </body>
+</html>
