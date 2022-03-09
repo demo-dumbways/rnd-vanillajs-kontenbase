@@ -7,8 +7,15 @@ const kontenbaseClient = new kontenbase.KontenbaseClient({
 let projects = [];
 
 async function getData() {
+  await kontenbaseClient.auth.login({
+    email: 'jody@mail.com',
+    password: '1234',
+  });
+
   const { data, error } = await kontenbaseClient.service('projectku').find();
+
   console.log(data);
+
   if (data) {
     projects = data;
     renderProject();
@@ -25,20 +32,23 @@ function renderProject() {
   projectContainer.innerHTML = '';
 
   for (let i = 0; i < projects.length; i++) {
-    console.log(projects[i]);
     let id = projects[i]._id;
     projectContainer.innerHTML += `
     <div class="card">
-        <img src="" />
-        <h3>${projects[i].title}</h3>
+        <img src="${
+          projects[i].thumbnail
+            ? projects[i].thumbnail[0].url
+            : 'https://pngimg.com/uploads/ferrari/ferrari_PNG102823.png'
+        }" />
+        <h3><a href="detail-project.html" onclick="getProjectById('${id}')">${
+      projects[i].title
+    }</a></h3>
         <div class="date">${getFullTime(projects[i].start)} - ${getFullTime(
       projects[i].end
     )}</div>
         <p>${projects[i].desc}</p>
         <div class="btn-group">
-            <button class="btn-edit" onclick="getProjectToEdit('${
-              projects[i]
-            }')">Edit</button>
+            <button class="btn-edit" onclick="getProjectById('${id}')">Edit</button>
             <button class="btn-delete" type="button" onclick="deleteProject('${id}','${
       projects[i].title
     }')">Delete</button>
@@ -52,25 +62,38 @@ async function addProject() {
   let start = document.getElementById('input-start').value;
   let end = document.getElementById('input-end').value;
   let desc = document.getElementById('input-desc').value;
-  let thumbnail = [document.getElementById('input-thumbnail').files[0]];
+  let thumbnail = document.getElementById('input-thumbnail').files[0];
+
+  const { data: dataThumbnail, error: errorThumbnail } =
+    await kontenbaseClient.storage.upload(thumbnail);
+
+  if (errorThumbnail) {
+    return console.log(errorThumbnail);
+  }
 
   let project = {
     title,
     start,
     end,
     desc,
-    // thumbnail,
+    thumbnail: [dataThumbnail],
   };
+
+  console.log(project);
 
   const { data, error } = await kontenbaseClient
     .service('projectku')
     .create(project);
 
-  if (data) {
-    getData();
-  } else {
+  if (error) {
     console.log(error);
   }
+
+  projects = data;
+
+  getData();
+
+  alert('Success Add Project ' + title);
 }
 
 async function deleteProject(id, title) {
@@ -87,11 +110,12 @@ async function deleteProject(id, title) {
   }
 }
 
-function getProjectToEdit(data) {
-  return console.log(data);
+function getProjectById(id) {
+  const data = projects.find((item) => item._id == id);
+
   localStorage.setItem('project', JSON.stringify(data));
-  const dataProject = localStorage.getItem('project');
-  console.log(dataProject);
+
+  window.location.href = 'update-project.html';
 }
 
 function onChangeThumbnail() {

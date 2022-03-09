@@ -12,6 +12,10 @@
   background: #ffd32d;
 }
 
+html {
+  background-color: #ebc53b;
+}
+
 * {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -28,7 +32,11 @@
 section.form-add {
   display: flex;
   height: 100vh;
+  /* background-color: #008e89; */
   background-color: #008e89;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='1' y2='0' gradientTransform='rotate(0,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%230FF'/%3E%3Cstop offset='1' stop-color='%23CF6'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23F00'/%3E%3Cstop offset='1' stop-color='%23FC0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23FFF' fill-opacity='0' stroke-miterlimit='10'%3E%3Cg stroke='url(%23a)' stroke-width='3.3'%3E%3Cpath transform='translate(-4.9 -2.8) rotate(-2.8 1409 581) scale(0.979)' d='M1409 581 1450.35 511 1490 581z'/%3E%3Ccircle stroke-width='1.1' transform='translate(-17.5 7) rotate(-1.4 800 450) scale(0.997)' cx='500' cy='100' r='40'/%3E%3Cpath transform='translate(-4.9 10.5) rotate(-17.5 401 736) scale(0.997)' d='M400.86 735.5h-83.73c0-23.12 18.74-41.87 41.87-41.87S400.86 712.38 400.86 735.5z'/%3E%3C/g%3E%3Cg stroke='url(%23b)' stroke-width='1'%3E%3Cpath transform='translate(42 4.2) rotate(-1.05 150 345) scale(1.007)' d='M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z'/%3E%3Crect stroke-width='2.2' transform='translate(10.5 -21) rotate(-25.2 1089 759)' x='1039' y='709' width='100' height='100'/%3E%3Cpath transform='translate(-2.8 -2.8) rotate(-4.2 1400 132) scale(0.965)' d='M1426.8 132.4 1405.7 168.8 1363.7 168.8 1342.7 132.4 1363.7 96 1405.7 96z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
   justify-content: center;
   align-items: center;
 }
@@ -137,6 +145,11 @@ section.form-add form .button-group button {
   font-weight: bold;
 }
 
+section.form-add form .button-group button:hover {
+  background-color: #fbff2d;
+  color: #008e89;
+}
+
 /* List Project */
 
 section.my-project {
@@ -170,6 +183,16 @@ section.my-project .project-container .card {
   background-color: #effffd;
   margin-right: 30px;
   margin-bottom: 30px;
+}
+
+section.my-project .project-container .card h3 a {
+  text-decoration: none;
+  color: black;
+}
+
+section.my-project .project-container .card h3 a:hover {
+  text-decoration: none;
+  color: #ffd32d;
 }
 
 section.my-project .project-container .card img {
@@ -210,4 +233,65 @@ section.my-project .project-container .card .btn-group button:hover {
 
 section.my-project .project-container .card .btn-group button.btn-edit {
   margin-right: 5px;
+}
+
+/* Detail Project */
+
+section.detail-project {
+  background-color: #009d97;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+section.detail-project .container-detail-project {
+  width: 70%;
+  margin-top: 40px;
+}
+
+section.detail-project .container-detail-project .detail-top {
+  display: flex;
+}
+
+section.detail-project .container-detail-project .detail-top .left {
+  flex: 60%;
+}
+section.detail-project .container-detail-project .detail-top .left img {
+  background-color: grey;
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
+}
+
+section.detail-project .container-detail-project .detail-top .right {
+  flex: 40%;
+  padding: 0 20px;
+}
+
+section.detail-project .container-detail-project .detail-top .right h5 {
+  margin-top: 15px;
+}
+
+section.detail-project .container-detail-project .detail-top .right button {
+  margin-top: 20px;
+  background-color: #085e7d;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 3px 20px;
+  cursor: pointer;
+}
+
+section.detail-project
+  .container-detail-project
+  .detail-top
+  .right
+  button:hover {
+  background-color: #097faa;
+  color: white;
+}
+
+section.detail-project .container-detail-project p {
+  text-align: justify;
+  margin-top: 30px;
 }

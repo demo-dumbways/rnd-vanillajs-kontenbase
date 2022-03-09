@@ -7,29 +7,28 @@
     <link rel="stylesheet" href="style.css" />
     <title>My Project</title>
     <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
   </head>
   <body>
     <section class="form-add">
       <form>
-        <h1>Add <span class="text-yellow">My Project</span></h1>
+        <h1>Update <span class="text-yellow">My Project</span></h1>
         <div class="input-group">
           <label for="input-title">Title</label>
-          <input type="text" id="input-title" placeholder="Write here..." />
+          <input
+            type="text"
+            id="input-title"
+            placeholder="Write here..."
+            value="Lorem ipsum dolor"
+          />
         </div>
         <div class="date-input-group">
           <div class="group-start">
             <label for="input-start">Start</label>
-            <input type="date" id="input-start" />
+            <input type="date" id="input-start" value="2022-03-03" />
           </div>
           <div class="group-end">
             <label for="input-end">End</label>
-            <input type="date" id="input-end" />
+            <input type="date" id="input-end" value="2022-08-03" />
           </div>
         </div>
         <div class="input-group">
@@ -51,15 +50,22 @@
           />
         </div>
         <div class="button-group">
-          <button type="button" onclick="addProject()">Submit</button>
+          <button
+            type="button"
+            onclick="cancelUpdateProject()"
+            style="
+              background-color: black;
+              font-size: 18px;
+              padding: 5px 10px;
+              margin-right: 5px;
+            "
+          >
+            Cancel
+          </button>
+          <button type="button" onclick="updateProject()">Save</button>
         </div>
       </form>
     </section>
-    <section class="my-project">
-      <h1 class="title-project">My Project</h1>
-      <div class="project-container" id="project-container"></div>
-    </section>
-
-    <script src="project.js"></script>
+    <script src="project-update.js"></script>
   </body>
 </html>
