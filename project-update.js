@@ -15,10 +15,14 @@ function getData() {
     let end = document.getElementById('input-end');
     let desc = document.getElementById('input-desc');
 
+    let thumbnailPreview = document.getElementById('thumbnail-preview');
+
     title.value = data.title;
     start.value = data.start;
     end.value = data.end;
     desc.value = data.desc;
+
+    thumbnailPreview.src = data.thumbnail[0].url;
   } else {
     window.location.href = 'index.html';
   }
@@ -29,8 +33,12 @@ getData();
 function onChangeThumbnail() {
   let thumbnail = document.getElementById('input-thumbnail').files[0];
   let thumbnailName = document.getElementById('choose-thumbnail-group');
+  let thumbnailPreview = document.getElementById('thumbnail-preview');
 
-  thumbnailName.innerHTML = `You choose file: <span class="text-yellow">${thumbnail.name}</span>`;
+  let imgPreview = URL.createObjectURL(thumbnail);
+
+  thumbnailName.innerHTML = `You choose new file: <span class="text-yellow">${thumbnail.name}</span>`;
+  thumbnailPreview.src = imgPreview;
 }
 
 function cancelUpdateProject() {
@@ -44,19 +52,43 @@ async function updateProject() {
   let start = document.getElementById('input-start').value;
   let end = document.getElementById('input-end').value;
   let desc = document.getElementById('input-desc').value;
+  let thumbnail = document.getElementById('input-thumbnail').files[0];
 
-  const { data, error } = await kontenbaseClient
-    .service('projectku')
-    .updateById(id, {
-      title,
-      start,
-      end,
-      desc,
-    });
+  if (thumbnail) {
+    const { data: dataThumbnail, error: errorThumbnail } =
+      await kontenbaseClient.storage.upload(thumbnail);
 
-  if (data) {
-    cancelUpdateProject();
+    if (errorThumbnail) {
+      return console.log(errorThumbnail);
+    }
+
+    const { data, error } = await kontenbaseClient
+      .service('projectku')
+      .updateById(id, {
+        title,
+        start,
+        end,
+        desc,
+        thumbnail: [dataThumbnail],
+      });
+    if (data) {
+      cancelUpdateProject();
+    } else {
+      console.log(error);
+    }
   } else {
-    console.log(error);
+    const { data, error } = await kontenbaseClient
+      .service('projectku')
+      .updateById(id, {
+        title,
+        start,
+        end,
+        desc,
+      });
+    if (data) {
+      cancelUpdateProject();
+    } else {
+      console.log(error);
+    }
   }
 }

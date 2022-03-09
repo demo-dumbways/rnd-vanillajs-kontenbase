@@ -24,7 +24,7 @@ function renderProject() {
         }" /></div>
         <div class="right">
             <h3 class="text-yellow">${data.title}</h3>
-            <h5>Durasi</h5>
+            <!--<h5>Durasi</h5>-->
             <span></span>
             <h5>Start</h5>
             <span>${data.start}</span>
